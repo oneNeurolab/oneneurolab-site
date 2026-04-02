@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 7-Day Dopamine Repair Kit — OneNeuroLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #ffffff;
+      --off-white: #F7F7F5;
+      --navy: #1A2332;
+      --navy-light: #2C3E50;
+      --black: #1A1A1A;
+      --gray: #6B7280;
+      --gray-light: #9CA3AF;
+      --gray-lighter: #E5E7EB;
+      --green: #16A34A;
+      --green-bg: #F0FDF4;
+      --red: #DC2626;
+      --accent: #1A2332;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+    .container { max-width: 520px; margin: 0 auto; padding: 0 24px; }
+
+    /* STICKY BAR */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); padding: 14px 24px; text-align: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    }
+    .sticky-bar a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 16px; display: block; }
+    .sticky-bar .sticky-price { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+    .sticky-bar .sticky-price .old-price { text-decoration: line-through; margin-right: 4px; }
+    .sticky-bar .sticky-price .new-price { color: var(--white); font-weight: 700; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 40px 24px 32px; background: linear-gradient(180deg, #F0F4F8 0%, var(--white) 100%); }
+    .hero-badge {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy);
+      background: rgba(26,35,50,0.08); padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .hero-image {
+      max-width: 280px; margin: 0 auto 28px; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    .placeholder-img {
+      width: 100%; height: 320px;
+      background: linear-gradient(135deg, var(--navy) 0%, #2C3E50 100%);
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      color: var(--white); padding: 32px;
+    }
+    .placeholder-img .pi-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.6; margin-bottom: 12px; }
+    .placeholder-img .pi-title { font-family: var(--serif); font-size: 22px; line-height: 1.3; text-align: center; }
+    .placeholder-img .pi-brand { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.5; margin-top: 20px; }
+
+    /* PROBLEM */
+    .problem { padding: 48px 24px; }
+    .problem .container p { margin-bottom: 16px; font-size: 17px; }
+    .problem .container p.muted { color: var(--gray-light); }
+    .problem .container p.bold, .problem .container p strong { font-weight: 700; }
+    .section-headline {
+      font-family: var(--serif); font-size: 28px; line-height: 1.25;
+      margin-bottom: 20px; color: var(--navy); font-weight: 400;
+    }
+
+    /* SOLUTION */
+    .solution { padding: 48px 24px; background: var(--off-white); }
+    .solution .container p { margin-bottom: 12px; }
+    .solution .container p.muted { color: var(--gray-light); }
+    .check-list { list-style: none; margin-top: 24px; }
+    .check-list li { padding: 8px 0 8px 36px; position: relative; font-size: 16px; }
+    .check-list li::before {
+      content: ''; position: absolute; left: 0; top: 12px; width: 22px; height: 22px;
+      border-radius: 50%; background: rgba(22,163,74,0.1);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316A34A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+      background-size: 14px; background-repeat: no-repeat; background-position: center;
+    }
+
+    /* WHAT YOU'LL LEARN */
+    .learn { padding: 56px 24px; text-align: center; }
+    .learn .subtitle { color: var(--gray); font-size: 16px; margin-bottom: 32px; }
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 520px; margin: 0 auto; }
+    .learn-card {
+      background: var(--white); border: 1px solid var(--gray-lighter);
+      border-radius: 12px; padding: 24px 16px; text-align: center;
+    }
+    .learn-card .card-icon {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--off-white);
+      margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .learn-card p { font-size: 14px; line-height: 1.5; color: var(--black); font-weight: 500; }
+    .closing-line { font-size: 16px; }
+    .closing-line span { color: var(--gray-light); }
+    .closing-line strong { color: var(--black); }
+
+    /* SOCIAL PROOF */
+    .social-proof { padding: 48px 24px; text-align: center; background: var(--off-white); }
+    .stars { font-size: 32px; margin-bottom: 12px; color: #F59E0B; }
+    .social-proof .section-headline { font-size: 24px; }
+    .testimonials {
+      display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; padding: 24px 0 8px; max-width: 520px; margin: 0 auto;
+    }
+    .testimonials::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      flex: 0 0 280px; scroll-snap-align: start; background: var(--white);
+      border-radius: 12px; padding: 24px; text-align: left; border: 1px solid var(--gray-lighter);
+    }
+    .testimonial-card .t-stars { color: #F59E0B; font-size: 16px; margin-bottom: 12px; }
+    .testimonial-card .t-text { font-size: 15px; line-height: 1.6; color: var(--black); margin-bottom: 16px; }
+    .testimonial-card .t-name { font-weight: 700; font-size: 15px; }
+    .testimonial-card .t-role { font-size: 13px; color: var(--gray); }
+
+    /* WHO FOR / NOT FOR */
+    .who-for, .who-not { padding: 48px 24px; text-align: center; }
+    .who-for .subtitle, .who-not .subtitle { color: var(--gray); font-size: 16px; margin-bottom: 24px; }
+    .who-list {
+      list-style: none; text-align: left; max-width: 520px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--gray-lighter); border-radius: 12px; padding: 24px;
+    }
+    .who-list li { padding: 8px 0 8px 32px; position: relative; font-size: 16px; }
+    .who-list.for-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .who-list.not-list li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+    .closing-text { font-size: 16px; }
+    .closing-text span { color: var(--gray-light); }
+    .closing-text strong { color: var(--black); }
+
+    /* KNOWLEDGE GAP */
+    .knowledge-gap { padding: 56px 24px; text-align: center; }
+    .knowledge-gap .subtitle { color: var(--gray); font-size: 16px; margin-bottom: 32px; }
+    .stat-card {
+      background: var(--white); border: 1px solid var(--gray-lighter);
+      border-radius: 12px; padding: 32px 24px; text-align: center; margin-bottom: 16px;
+    }
+    .stat-card .stat-icon { font-size: 24px; margin-bottom: 8px; }
+    .stat-card .stat-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 4px;
+    }
+    .stat-card .stat-number { font-family: var(--serif); font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+    .stat-card .stat-desc { font-size: 15px; color: var(--gray); margin-top: 8px; }
+
+    /* COMPARISON */
+    .comparison { padding: 0 24px 48px; max-width: 520px; margin: 0 auto; }
+    .compare-box { border: 1px solid var(--gray-lighter); border-radius: 12px; overflow: hidden; }
+    .compare-side { padding: 24px; }
+    .compare-side + .compare-side { border-top: 1px solid var(--gray-lighter); }
+    .compare-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 12px;
+    }
+    .compare-item { padding: 4px 0; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+    .compare-item .x { color: var(--red); font-weight: 700; }
+    .compare-item .x + span { color: var(--gray-light); }
+    .compare-item .check { color: var(--green); font-weight: 700; }
+
+    /* DARK SECTION */
+    .dark-section { background: var(--navy); color: var(--white); padding: 56px 24px; text-align: center; }
+    .dark-section .section-headline { color: var(--white); font-size: 28px; margin-bottom: 20px; }
+    .dark-section p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 12px; }
+
+    /* PRICING CTA */
+    .pricing-cta { padding: 56px 24px; text-align: center; }
+    .pricing-cta p.intro { color: var(--gray); font-size: 16px; margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .price-row { display: flex; align-items: baseline; justify-content: center; gap: 20px; margin-bottom: 8px; }
+    .price-old { font-size: 14px; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .price-old span { display: block; font-size: 28px; text-decoration: line-through; color: var(--gray-light); font-family: var(--serif); }
+    .price-new { font-size: 14px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .price-new span { display: block; font-size: 48px; font-family: var(--serif); font-weight: 700; color: var(--navy); }
+    .price-note { color: var(--gray); font-size: 15px; margin-bottom: 32px; }
+    .cta-btn {
+      display: block; background: var(--navy); color: var(--white); font-family: var(--sans);
+      font-size: 18px; font-weight: 600; padding: 20px 32px; border-radius: 12px;
+      text-decoration: none; text-align: center; max-width: 520px; margin: 0 auto;
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,35,50,0.2); }
+    .cta-btn .btn-price { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+    .cta-btn .btn-price .old { text-decoration: line-through; margin-right: 6px; }
+
+    /* OR DIVIDER */
+    .or-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 24px 0; }
+    .or-divider .line { width: 60px; height: 1px; background: var(--gray-lighter); }
+    .or-divider em { font-family: var(--serif); color: var(--gray-light); font-size: 16px; }
+    .or-box {
+      background: var(--off-white); border-radius: 12px; padding: 20px 24px;
+      text-align: center; font-size: 16px; color: var(--black); font-weight: 500; max-width: 420px; margin: 0 auto;
+    }
+
+    /* COUNTDOWN */
+    .countdown-wrap { text-align: center; margin-top: 28px; }
+    .countdown-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 12px;
+    }
+    .countdown { display: flex; justify-content: center; gap: 8px; align-items: center; }
+    .countdown-box {
+      background: var(--navy); color: var(--white); width: 56px; height: 56px;
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 700;
+    }
+    .countdown-sep { color: var(--gray); font-size: 20px; font-weight: 700; }
+    .countdown-units { display: flex; justify-content: center; gap: 30px; margin-top: 6px; }
+    .countdown-units span {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gray); width: 56px; text-align: center;
+    }
+
+    /* CLOSING */
+    .closing { padding: 48px 24px; text-align: center; }
+    .closing p { font-size: 16px; color: var(--gray); margin-bottom: 8px; }
+    .closing p strong { color: var(--black); }
+
+    /* FAQ */
+    .faq { padding: 56px 24px; }
+    .faq .section-headline { text-align: center; margin-bottom: 8px; }
+    .faq .subtitle { text-align: center; color: var(--gray); font-size: 16px; margin-bottom: 32px; }
+    .faq-list { max-width: 520px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--gray-lighter); }
+    .faq-question {
+      width: 100%; background: none; border: none; font-family: var(--sans);
+      font-size: 16px; font-weight: 600; color: var(--black); padding: 20px 0;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-align: left;
+    }
+    .faq-question .chevron { font-size: 20px; transition: transform 0.2s; color: var(--gray); flex-shrink: 0; margin-left: 12px; }
+    .faq-item.active .faq-question .chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer-inner { padding: 0 0 20px; font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .faq-item.active .faq-answer { max-height: 300px; }
+
+    /* FOOTER */
+    .footer { padding: 40px 24px 20px; text-align: center; border-top: 1px solid var(--gray-lighter); }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--gray); text-decoration: none; }
+    .footer-links a:hover { color: var(--black); }
+    .footer p { font-size: 13px; color: var(--gray-light); margin-bottom: 8px; line-height: 1.6; }
+
+    /* PURCHASE POPUP */
+    .purchase-popup {
+      position: fixed; bottom: 90px; left: 16px; background: var(--white);
+      border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      padding: 14px 18px; display: flex; align-items: center; gap: 12px;
+      z-index: 99; transform: translateY(20px); opacity: 0;
+      transition: all 0.4s ease; max-width: 320px; border: 1px solid var(--gray-lighter);
+    }
+    .purchase-popup.show { transform: translateY(0); opacity: 1; }
+    .popup-icon {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--green-bg);
+      display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+    }
+    .popup-text .popup-name { font-size: 14px; font-weight: 600; }
+    .popup-text .popup-loc { font-size: 12px; color: var(--gray); }
+    .popup-text .popup-verified { font-size: 11px; color: var(--green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+    @media (min-width: 640px) {
+      .container { max-width: 560px; }
+      .hero { padding: 60px 24px 40px; }
+      .section-headline { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">OneNeuroLab</div>
+    <div class="hero-image">
+      <div class="placeholder-img">
+        <div class="pi-sub">The 7-Day</div>
+        <div class="pi-title">Dopamine<br>Repair Kit</div>
+        <div class="pi-brand">OneNeuroLab</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <h2 class="section-headline">Most People Are Running on a Broken Reward System</h2>
+      <p>But they have no idea why they can't focus, feel unmotivated, or struggle to start anything meaningful.</p>
+      <p><strong>Dopamine controls everything.</strong></p>
+      <p>Your focus. Your drive. Your ability to follow through. Your mood every single morning.</p>
+      <p>But here's the problem.</p>
+      <p>Most people have been unknowingly destroying their dopamine system for years.</p>
+      <p class="muted">Not through drugs. Not through anything extreme.</p>
+      <p>Through everyday habits that silently drain their brain's ability to feel motivated.</p>
+      <p>They scroll more. Start less. Feel flat. Blame themselves.</p>
+      <p>Then try another productivity hack that never sticks.</p>
+      <p>Not because they lack discipline.</p>
+      <p><strong>Because no one taught them how their brain actually works.</strong></p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution">
+    <div class="container">
+      <h2 class="section-headline">This Guide Changes That</h2>
+      <p>The 7-Day Dopamine Repair Kit was created to solve one problem.</p>
+      <p><strong>Helping you understand and reset your brain's reward system so you can feel driven, focused, and sharp again.</strong></p>
+      <p class="muted" style="margin-top:16px;">This is not a complicated neuroscience textbook.</p>
+      <p class="muted">And it is not theory.</p>
+      <p style="margin-top:12px;">It is a practical, science-backed protocol that explains:</p>
+      <ul class="check-list">
+        <li>How dopamine actually works in your brain</li>
+        <li>The daily habits silently draining your motivation</li>
+        <li>How to reset your baseline in 7 days</li>
+        <li>Simple protocols to protect your focus long-term</li>
+      </ul>
+      <p style="margin-top:24px;">Everything is explained in simple language with real action steps.</p>
+      <p><strong>So you can actually understand what is happening in your brain and fix it.</strong></p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL LEARN -->
+  <section class="learn">
+    <div class="container">
+      <h2 class="section-headline">What You Will Learn Inside</h2>
+      <p class="subtitle">Inside this guide are science-backed strategies used by peak performers. You will learn how to:</p>
+      <div class="card-grid">
+        <div class="learn-card"><div class="card-icon">🧠</div><p>Understand how dopamine drives focus and motivation</p></div>
+        <div class="learn-card"><div class="card-icon">📱</div><p>Identify the habits destroying your reward system</p></div>
+        <div class="learn-card"><div class="card-icon">⚡</div><p>Reset your dopamine baseline in just 7 days</p></div>
+        <div class="learn-card"><div class="card-icon">🎯</div><p>Build a morning routine that fuels deep focus</p></div>
+        <div class="learn-card"><div class="card-icon">😴</div><p>Optimize sleep for overnight brain recovery</p></div>
+        <div class="learn-card"><div class="card-icon">🔋</div><p>Sustain motivation without willpower or burnout</p></div>
+        <div class="learn-card"><div class="card-icon">🍽️</div><p>Use nutrition to naturally boost dopamine levels</p></div>
+        <div class="learn-card"><div class="card-icon">🧘</div><p>Protect your brain from overstimulation long-term</p></div>
+      </div>
+      <div class="closing-line" style="margin-top:28px;">
+        <span>These strategies are backed by neuroscience research.</span><br>
+        <strong>The difference is simply knowing how to apply them.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof">
+    <div class="stars">★★★★★</div>
+    <h2 class="section-headline">500+ readers have rated<br>this guide 4.9 out of 5.</h2>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"I didn't realize how much my phone habits were killing my focus. After day 3 I felt like a completely different person. I actually finish tasks now instead of just planning them."</p>
+        <p class="t-name">Michael R.</p>
+        <p class="t-role">Software Engineer</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"As a freelancer, motivation is everything. This guide gave me a system instead of guessing. My morning routine alone changed my entire output."</p>
+        <p class="t-name">Sarah K.</p>
+        <p class="t-role">Freelance Designer</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Simple, practical, no fluff. I've read countless self-help books and this 7-day protocol actually delivered results I could feel."</p>
+        <p class="t-name">David L.</p>
+        <p class="t-role">Entrepreneur</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who-for">
+    <div class="container">
+      <h2 class="section-headline">Who This Guide Is For</h2>
+      <p class="subtitle">This guide is for anyone who wants to understand how their brain works. This includes:</p>
+      <ul class="who-list for-list">
+        <li>People who struggle with focus and procrastination</li>
+        <li>Entrepreneurs and creatives who need sustained motivation</li>
+        <li>Students who want to study more effectively</li>
+        <li>Anyone who feels chronically unmotivated or mentally flat</li>
+        <li>People interested in optimizing brain health and performance</li>
+      </ul>
+      <div class="closing-text" style="margin-top:24px;">
+        <span>If you have a brain, dopamine affects your life.</span><br>
+        <strong>Understanding it is one of the most valuable skills you can develop.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S NOT FOR -->
+  <section class="who-not">
+    <div class="container">
+      <h2 class="section-headline">Who This Guide Is NOT For</h2>
+      <p class="subtitle">This guide is not for everyone. It is not for:</p>
+      <ul class="who-list not-list">
+        <li>People who want a magic pill without doing the work</li>
+        <li>People looking for medical or clinical advice</li>
+        <li>People who would struggle to invest $17 in their brain</li>
+      </ul>
+      <div class="closing-text" style="margin-top:24px;">
+        <span>This guide is for people who understand something important.</span><br>
+        <strong>Neuroscience knowledge compounds.</strong><br>
+        <span>And understanding how your brain works changes how you make every decision.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KNOWLEDGE GAP -->
+  <section class="knowledge-gap">
+    <div class="container">
+      <h2 class="section-headline">The Implementation Gap That Keeps People Stuck</h2>
+      <p class="subtitle">Most people never learn how their dopamine system actually works. So they stay stuck in the same cycles year after year.</p>
+      <div class="stat-card">
+        <div class="stat-icon">📖</div>
+        <div class="stat-label">Inside This Guide</div>
+        <div class="stat-number">7</div>
+        <div class="stat-desc">Days of science-backed protocols to reset your brain's reward system.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-label">Total Price</div>
+        <div class="stat-number">$37</div>
+        <div class="stat-desc"><span style="text-decoration:line-through;color:var(--gray-light);">$37</span> → <strong style="color:var(--navy);">$17 Today</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="comparison">
+    <div class="compare-box">
+      <div class="compare-side">
+        <div class="compare-label">Typical Person</div>
+        <div class="compare-item"><span class="x">✕</span> <span>Blames lack of discipline</span></div>
+        <div class="compare-item"><span class="x">✕</span> <span>Scrolls through the day without realizing</span></div>
+      </div>
+      <div class="compare-side">
+        <div class="compare-label">Dopamine-Optimized Person</div>
+        <div class="compare-item"><span class="check">✓</span> <span>Understands how their brain works</span></div>
+        <div class="compare-item"><span class="check">✓</span> <span>Has a system that sustains focus</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK SECTION -->
+  <section class="dark-section">
+    <h2 class="section-headline">Your Choice</h2>
+    <p>You can keep doing what most people do.</p>
+    <p>Blame yourself for not being disciplined enough.</p>
+    <p>Chase another productivity hack.</p>
+    <p>And hope things get better on their own.</p>
+  </section>
+
+  <!-- PRICING CTA -->
+  <section class="pricing-cta">
+    <div class="container">
+      <div class="or-divider"><div class="line"></div><em>or</em><div class="line"></div></div>
+      <div class="or-box" style="margin-bottom:28px;">Or you can understand how your brain's reward system works.</div>
+      <p style="font-weight:700;font-size:18px;margin-bottom:32px;">And start making smarter decisions about your focus, energy, and motivation.</p>
+      <p class="intro">Learn the neuroscience-backed strategies used by peak performers, biohackers, and high achievers to stay focused and driven every single day.</p>
+      <div class="price-row">
+        <div class="price-old">Regular Price<span>$37</span></div>
+        <div class="price-new">Today<span>$17</span></div>
+      </div>
+      <p class="price-note">That's less than a single coffee run. One protocol could change your entire week.</p>
+      <a href="#" class="cta-btn">Get Instant Access →<div class="btn-price"><span class="old">$37</span> → $17 Today</div></a>
+      <div class="countdown-wrap">
+        <div class="countdown-label">Discount Expires In</div>
+        <div class="countdown">
+          <div class="countdown-box" id="cd-hours">23</div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-box" id="cd-mins">56</div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-box" id="cd-secs">13</div>
+        </div>
+        <div class="countdown-units"><span>Hours</span><span>Min</span><span>Sec</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="container">
+      <p>Most people spend their lives guessing why they feel unmotivated.</p>
+      <p>Very few take the time to understand how their brain actually works.</p>
+      <p><strong>This guide helps you do exactly that.</strong></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-headline">Frequently Asked Questions</h2>
+      <p class="subtitle">Everything you need to know before you get started.</p>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">Is this based on real science? <span class="chevron">▾</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Every protocol in this guide is grounded in peer-reviewed neuroscience research on dopamine, motivation, and reward pathways. We've simplified the science so anyone can apply it.</div></div></div>
+        <div class="faq-item"><button class="faq-question">I'm not a biohacker. Will this still help me? <span class="chevron">▾</span></button><div class="faq-answer"><div class="faq-answer-inner">Absolutely. This guide is written for everyday people — not scientists. If you struggle with focus, motivation, or procrastination, this was made for you.</div></div></div>
+        <div class="faq-item"><button class="faq-question">How is this different from free advice online? <span class="chevron">▾</span></button><div class="faq-answer"><div class="faq-answer-inner">Free content gives you scattered tips. This guide gives you a complete 7-day system — step-by-step, day-by-day — designed to produce real, noticeable changes in how you feel and perform.</div></div></div>
+        <div class="faq-item"><button class="faq-question">Do I need any supplements or special equipment? <span class="chevron">▾</span></button><div class="faq-answer"><div class="faq-answer-inner">No. Everything in this guide is based on behavioral and lifestyle changes. No supplements, no apps, no special tools required.</div></div></div>
+        <div class="faq-item"><button class="faq-question">What format is the guide? <span class="chevron">▾</span></button><div class="faq-answer"><div class="faq-answer-inner">It's a digital PDF you can read on any device. You get instant access immediately after purchase.</div></div></div>
+        <div class="faq-item"><button class="faq-question">Is there a money-back guarantee? <span class="chevron">▾</span></button><div class="faq-answer"><div class="faq-answer-inner">Yes. If you complete the 7-day protocol and don't feel a noticeable difference, contact us for a full refund. No questions asked.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="pricing-cta" style="padding-top:20px;">
+    <div class="container">
+      <a href="#" class="cta-btn">Get Instant Access →<div class="btn-price"><span class="old">$37</span> → $17 Today</div></a>
+      <div class="countdown-wrap">
+        <div class="countdown-label">Discount Expires In</div>
+        <div class="countdown">
+          <div class="countdown-box cd-hours2">23</div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-box cd-mins2">56</div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-box cd-secs2">13</div>
+        </div>
+        <div class="countdown-units"><span>Hours</span><span>Min</span><span>Sec</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Disclaimer</a>
+    </div>
+    <p>&copy; 2026 OneNeuroLab. All rights reserved.</p>
+    <p>This guide is for educational purposes only and does not constitute medical advice. Consult a qualified professional before making any health-related decisions.</p>
+    <p>This site is not a part of the Facebook website or Meta Platforms, Inc. Additionally, this site is not endorsed by Facebook or Instagram in any way.</p>
+  </footer>
+
+  <!-- PURCHASE POPUP -->
+  <div class="purchase-popup" id="purchasePopup">
+    <div class="popup-icon">🧠</div>
+    <div class="popup-text">
+      <div class="popup-name" id="popupName">Alex M. just purchased</div>
+      <div class="popup-loc" id="popupLoc">Austin, TX · 3 min ago</div>
+      <div class="popup-verified">✓ Verified Purchase</div>
+    </div>
+  </div>
+
+  <!-- STICKY BAR -->
+  <div class="sticky-bar">
+    <a href="#">Get Instant Access →
+      <div class="sticky-price"><span class="old-price">$37</span> <span class="new-price">$17 Today</span></div>
+    </a>
+  </div>
+
+  <script>
+    // COUNTDOWN
+    let total = 23 * 3600 + 56 * 60 + 13;
+    function tick() {
+      if (total <= 0) return;
+      total--;
+      const h = Math.floor(total / 3600);
+      const m = Math.floor((total % 3600) / 60);
+      const s = total % 60;
+      const pad = n => String(n).padStart(2, '0');
+      const el = id => document.getElementById(id);
+      if (el('cd-hours')) el('cd-hours').textContent = pad(h);
+      if (el('cd-mins')) el('cd-mins').textContent = pad(m);
+      if (el('cd-secs')) el('cd-secs').textContent = pad(s);
+      document.querySelectorAll('.cd-hours2').forEach(e => e.textContent = pad(h));
+      document.querySelectorAll('.cd-mins2').forEach(e => e.textContent = pad(m));
+      document.querySelectorAll('.cd-secs2').forEach(e => e.textContent = pad(s));
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // FAQ
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+      });
+    });
+
+    // PURCHASE POPUP
+    const buyers = [
+      { name: 'Alex M.', loc: 'Austin, TX', time: '3 min ago' },
+      { name: 'Sophie R.', loc: 'London, UK', time: '5 min ago' },
+      { name: 'James T.', loc: 'Toronto, CA', time: '2 min ago' },
+      { name: 'Lena W.', loc: 'Berlin, DE', time: '8 min ago' },
+      { name: 'Chris B.', loc: 'San Diego, CA', time: '4 min ago' },
+      { name: 'Nina K.', loc: 'Amsterdam, NL', time: '6 min ago' },
+      { name: 'Marco P.', loc: 'Milan, IT', time: '1 min ago' },
+    ];
+    let bi = 0;
+    function showPopup() {
+      const popup = document.getElementById('purchasePopup');
+      const b = buyers[bi % buyers.length];
+      document.getElementById('popupName').textContent = b.name + ' just purchased';
+      document.getElementById('popupLoc').textContent = b.loc + ' · ' + b.time;
+      popup.classList.add('show');
+      setTimeout(() => { popup.classList.remove('show'); bi++; }, 4000);
+    }
+    setTimeout(showPopup, 6000);
+    setInterval(showPopup, 25000);
+  </script>
+</body>
+</html>
